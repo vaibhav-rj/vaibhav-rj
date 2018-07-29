@@ -1,5 +1,5 @@
 # vaibhav-rj
-Handwritten devnagari(Hindi) numerals(0-9) classifier
+# Handwritten devnagari(Hindi) numerals(0-9) classifier
 
 The handwritten devnagari(Hindi) numerals(0-9) classifier which I've created consists of 2 file:-
 
