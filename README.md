@@ -5,7 +5,8 @@ The handwritten devnagari(Hindi) numerals(0-9) classifier which I've created con
 
 (1)The 1st file:-'image_recog_train2.py' contains the code for training the model for classifying the devnagari numerals(0-9) handwritten
 images.For the purpose I have trained the model using the train set of extracted version of zip file 'DevanagariHandwrittenCharacterDataset'
-that contains handwritten devnagari numerals(0-9 in hindi) images along with the images of other characters and is uploaded on github by me.
+that contains handwritten devnagari numerals(0-9 in hindi) images along with the images of other characters and can be accessed from the 
+given link:-'https://archive.ics.uci.edu/ml/machine-learning-databases/00389/'.Also,the accessed file:-'DevanagariHandwrittenCharacterDataset.zip' and its extracted version needs to be saved alond with 'image_recog_train2.py' and 'image_recog_test2.py' at the same location.
 
 (2)The 2nd file:-'image_recog_test2.py' contains the code where the random handwritten images of the devnagari numerals(0-9),
 either taken from the test set of 'DevanagariHandwrittenCharacterDataset' extracted file or is drawn in MS-Paint on:-
