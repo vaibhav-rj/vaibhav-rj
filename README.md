@@ -33,5 +33,5 @@ It would take 20-30 minutes to train the model depending on your processor.
 For eg:-If name of my image file is 5422 and its saved in (.png extension) my desktop,
 I would write:-"python image_recog_test2.py C:\Users\NPC\Desktop\5422.png".
 
-Please avoid including the doulble inverted commas while writing in the command line.They have been used here only to distinguish
+Please avoid including the double inverted commas while writing in the command line.They have been used here only to distinguish
 the syntax of the command from normal text.
