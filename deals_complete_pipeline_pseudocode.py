@@ -7,7 +7,18 @@ from nltk.stem import WordNetLemmatizer
 
 from pymongo import MongoClient
 
+import gensim 
+from gensim.models import Word2Vec 
+from pymongo import MongoClient
+
+from nltk.tag.stanford import StanfordNERTagger
+from nltk.parse.corenlp import CoreNLPParser
 import csv
+
+# coreNLP initialization
+#st1 = CoreNLPParser(tagtype='ner')
+st1 = CoreNLPParser(url="http://localhost:9000", tagtype='ner')
+parser = CoreNLPParser(url="http://localhost:9000", tagtype='pos')
 
 warnings.filterwarnings(action = 'ignore')
 
