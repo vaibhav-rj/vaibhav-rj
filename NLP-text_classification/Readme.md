@@ -91,8 +91,9 @@ Since I used BertForSequenceClassification for training my deal sentence classif
 (e)For the custom test input directly tokenize and convert into ids on one go by tokenizer.encode() method. Pass the ***input_ids*** into loaded model() constructor. Finally predict output from logits by selecting maximum element index in logits 'array' part***==><u>pred_labels_i = np.argmax(predictions[i], axis=1).flatten()'</u>
 
 # Note:- In case of train file not visible on github-> 
-***(a)replace github by githubcolab in the path of "deal_sent_classify.ipynb" in url.
-(b)Download the jupyter file in loacl and view in jupyter-lab/notebook.***
+***(a)replace github by githubcolab in the path of "deal_sent_classify.ipynb/Deal_sent_classify_test1.ipynb" in url.
+
+(b)Download the jupyter file in local and view in jupyter-lab/notebook.***
 
 
 

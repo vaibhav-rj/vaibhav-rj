@@ -97,6 +97,7 @@ to group the Words, POS, and Tags of given indexed sentence together.Code mentio
 (e)For the custom test input directly tokenize and convert into ids on one go by tokenizer.encode() method. Pass the ***input_ids*** into loaded model() constructor. Finally for taglist prediction of input, extraction of the maximum of logits array each actual tag/input_ids(of custom input) is needed***==><u>[list(p) for p in np.argmax(logits, axis=2)]'</u>
 
 # Note:- In case of train file not visible on github-> 
-***(a)replace github by githubcolab in the path of "deal_sent_classify.ipynb" in url.
-(b)Download the jupyter file in loacl and view in jupyter-lab/notebook.***
+***(a)replace github by githubcolab in the path of "bert_ner.ipynb/bert_ner_test.ipynb" in url.
+
+(b)Download the jupyter file in local and view in jupyter-lab/notebook.***
 
