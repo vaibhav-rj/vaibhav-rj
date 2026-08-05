@@ -8,4 +8,4 @@ Relates with **image processing, analysis tasks**. Presently has ***codefiles***
 Relates with **sentence/text/sequence classification tasks of NLP**. Presently has ***codefiles*** of train, test segment along with ***README.md*** narrating implementation of the project on **classification of deals/non-deals statement business articles**.
 
 ### 3. NLP-text-tagger:-
-Relates with **token classification/NER tagging tasks of NLP**. Presently has ***codefiles*** of train, test segment along with ***README.md*** narrating implementation of the project of **customized NER(Name, place, organization fields) tagger**.
+Relates with **token classification/NER tagging tasks of NLP**. Presently has ***codefiles*** of train, test segment along with ***README.md(currently in progress)*** narrating implementation of the project of **customized NER(Name, place, organization fields) tagger**.
