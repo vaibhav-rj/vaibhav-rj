@@ -46,13 +46,13 @@ Since I used BertForSequenceClassification for training my deal sentence classif
 
 ## **Brief overview of "deal_sent_classify.ipynb(training notebook)" & "Deal_sent_classify_test1.ipynb(Test notebook)":-**
 ### **(1)Training notebook:-**
-(a)1st mount the colab and define path followed by setting GPU runtype environment. Now open the *'deal_data.csv'* created by following ***steps[a-e]*** of usage segment. It contains ***'link', 'sentences', 'labels', 'ID' columns.***
+(a)1st mount the colab and define path followed by setting GPU runtype environment. Now open the *'deal_data.csv'* created by following ***steps[a-e]*** of usage segment. It contains ***'link', 'sentences', 'labels', 'ID' columns.*** <u>Note:-user can use cutomized input since deal_data.csv belonged to a client and is not available on this repo. Just extract ***text and lable*** colums from customized data and follow below steps.</u>
 
 (b)consider train data *length<512*, and double the numbers of train samples where positive labels(1/Deal).
 
-(c)Now we load **BertTokenizer('bert-base-uncased')**==><u>BertTokenizer.from_pretrained('bert-base-uncased', do_lower_case=True).</u> Thereafter we generate **token_ids via tokenizer, pad/truncate to a MAX_LEN and create corresponding attention masks**(0 for PAD/0 tokens, 1 for other token_ids) of normalized token_ids(equal lengths).
+(c)Now we load **BertTokenizer('bert-base-uncased')**==><u>BertTokenizer.from_pretrained('bert-base-uncased', do_lower_case=True).</u> Thereafter we generate **tokenized words via tokenizer, convert them to ids, pad/truncate to a MAX_LEN and create corresponding attention masks(mask_id)**(0 for PAD/0 tokens, 1 for other token_ids) of normalized token_ids(equal lengths).
 
-(d)Do train-validation split(90:10). Define *batch_size(here 30)* and prepare train and validation dataloaders.
+(d)Do train-validation split(90:10) for both input_ids and mask_id in ***same state for identical stratification(so that input_id remain mapped to mask_id during train and validation).*** Define *batch_size(here 30)* and prepare train and validation dataloaders.
 
 (e)**load pretrained BertForSequenceClassification("bert-base-uncased")** ==> <u>BertForSequenceClassification.from_pretrained("bert-base-uncased", num_labels=2(2+ if multiclass)).</u> Set it on GPU(.cuda() method).
 
@@ -74,7 +74,7 @@ Since I used BertForSequenceClassification for training my deal sentence classif
 
 (iii) Aggregate the loss to epoch level variable across each batch. After ***loss calculation and updation, perform backprop (normalize gradients to 1 and update weights using opimizer.step(),scheduler.step()). Calculate average loss and append epoch level losses to global train_loss list***.
 
-(iv)Enter the **validation loop** inside given epoch and perform same ***batchwise operation(loss calculation,metrics).*** Aggegate these to average_metrics and averge validation loss at epoch level ( at end of batch level loop). Also append epoch level avg loss to global list like in last step. ***Prefer saving the model_checkpoint with bestmetrics here for optimum weights(or at last after loss plot).***
+(iv)Enter the **validation loop** inside given epoch and perform same ***batchwise operation(loss calculation,metrics).*** Aggegate these to relevant_metrics and averge validation loss at epoch level ( at end of batch level loop). Also append epoch level avg loss to global list like in last step. ***Prefer saving the model_checkpoint with bestmetrics here for optimum weights(or at last after loss plot).***
 
 (v)Populate the loss claculation, checkpoint steps along training loop execution and use *tqdm* to view the progress.
             
@@ -86,13 +86,14 @@ Since I used BertForSequenceClassification for training my deal sentence classif
 (b)**Load both fine-tuned model and tokenizer saved in Trained notebook by.from_pretrained(trained_model_directory path).**
 (c)Pre-process the sentences across each test example similar to **[a-c] of training notebook**. This yeilds ***input_ids, attention_mask(equal to MAX_LEN), and labels(from label colum of test file).*** Define relevant metrics function or import them from suitable libraries(scikit-learn, keras).
 
-(d)Create test dataloader with batch_size(here 30). After this ***repeat the validation loop part i.e e[iv-vi] except save checkpoint part .Also add predicting output from logits by selecting maximum elemnet index in logits 'array' part***==><u>pred_labels_i = np.argmax(predictions[i], axis=1).flatten()' and aggregating it at epoch level. Calculate relevant aggregated test metrics.</u>
+(d)Create test dataloader with batch_size(here 30). After this ***repeat the validation loop part i.e e[iv-vi] except save checkpoint part .Also add predicting output from logits by selecting maximum elemnet index in logits 'array' part***==><u>pred_labels_i = np.argmax(predictions[i], axis=1).flatten()'</u> and aggregating it at epoch level. Calculate relevant aggregated test metrics.
 
-(e)Repeat the above for custom test inputs.
+(e)For the custom test input directly tokenize and convert into ids on one go by tokenizer.encode() method. Pass the ***input_ids*** into loaded model() constructor. Finally predict output from logits by selecting maximum element index in logits 'array' part***==><u>pred_labels_i = np.argmax(predictions[i], axis=1).flatten()'</u>
 
 # Note:- In case of train file not visible on github-> 
-***(a)replace github by githubcolab in the path of "deal_sent_classify.ipynb" in url.
-(b)Download the jupyter file in loacl and view in jupyter-lab/notebook.***
+***(a)replace github by githubcolab in the path of "deal_sent_classify.ipynb/Deal_sent_classify_test1.ipynb" in url.
+
+(b)Download the jupyter file in local and view in jupyter-lab/notebook.***
 
 
 
