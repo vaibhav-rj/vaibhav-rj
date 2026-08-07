@@ -14,4 +14,4 @@ Relates with **token classification/NER tagging tasks of NLP**. Presently has **
 Relates with **temporal/sequential data modelling** (power consumption, stock prediction, weather forcast etc). Currently has **pipeline file**  regarding to ***analysis and modelling the multiple AC power usage** project and its README.md.
 
 ### 5. Heirarchical_classification:-
-Relates with overview of **different heirarchical_classifiers archtitecture**. We've used a combination of archticture for **developing 3 level heirarchical classifiers** project, with incremental level model training. The ***codefiles*** for train and test segment along with ***"README.md" and data.csv(train/test data)***are present.
+Relates with overview of **different heirarchical_classifiers archtitecture**. We've used a combination of archticture for **developing 3 level heirarchical classifiers** project, with incremental level model training. The ***codefiles*** for train and test segment along with *** "README.md" and data.csv(train/test data)***are present.
