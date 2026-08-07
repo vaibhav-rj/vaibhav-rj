@@ -1,5 +1,5 @@
 # **vaibhav-rj**
-## Project work brief across thematic folders
+## Project work brief across thematic folders=>
 
 ### 1. computer-vision:- 
 Relates with **image processing, analysis tasks**. Presently has ***codefiles*** of ***handwritten devnagari numerals(0-9)*** project's train, test segment along with ***README.md*** narrating its implementation.
@@ -12,3 +12,6 @@ Relates with **token classification/NER tagging tasks of NLP**. Presently has **
 
 ### 4. RNN_temporal_model:-
 Relates with **temporal/sequential data modelling** (power consumption, stock prediction, weather forcast etc). Currently has **pipeline file**  regarding to ***analysis and modelling the multiple AC power usage** project and its README.md.
+
+### 5. Heirarchical_classification:-
+Relates with overview of **different heirarchical_classifiers archtitecture**. We've used a combination of archticture for **developing 3 level heirarchical classifiers** project, with incremental level model training. The ***codefiles*** for train and test segment along with ***"README.md" and data.csv(train/test data)***are present.

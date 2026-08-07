@@ -102,6 +102,8 @@ Now ***model is fit using attributes train & validation input, outputs, epochs, 
 
 (viii)<u>**Aggreagate models(AC1-18) performance**</u>:- By observing each's final MSE--->RMSE(square root of MSE) and finding range across all(AC1-18). **Comes around 0.064 and 0.11 for AC hourly power consumption in 50-250 units.**
 
+(ix)Gneneral analysis, hyperparameters/attributes values and their aggregate metrics are mentioned in separate file:- **"zenatix_observation.docx/md"**.
+
 -------------------------------------
 ## Note:- In case "AC_power_prediction.ipynb" fails to unload(as > 5mb):-
 
