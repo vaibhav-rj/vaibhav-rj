@@ -1,4 +1,4 @@
-# Custom NER-tagger development pipeline
+# Custom NER-tagger development pipeline(Flow of train and inference for custom Name, entity recognition tagger)
 
 ## **(1)Training notebook:-**
 
