@@ -74,7 +74,7 @@ Since I used BertForSequenceClassification for training my deal sentence classif
 
 (iii) Aggregate the loss to epoch level variable across each batch. After ***loss calculation and updation, perform backprop (normalize gradients to 1 and update weights using opimizer.step(),scheduler.step()). Calculate average loss and append epoch level losses to global train_loss list***.
 
-(iv)Enter the **validation loop** inside given epoch and perform same ***batchwise operation(loss calculation,metrics).*** Aggegate these to relevant_metrics and averge validation loss at epoch level ( at end of batch level loop). Also append epoch level avg loss to global list like in last step. ***Prefer saving the model_checkpoint with bestmetrics here for optimum weights(or at last after loss plot).***
+(iv)Enter the **validation loop** inside given epoch and perform same ***batchwise operation(loss calculation,metrics).*** Aggegate these to relevant_metrics and averge validation loss at epoch level ( at end of batch level loop). Also append epoch level avg loss to global list like in last step. ***Prefer saving the model_checkpoint with bestmetrics here for optimum weights(or at last after loss plot). For our case, best model has :-<u>{avg_train_loss =0.25, validation_accuracy =0.84}</u>***
 
 (v)Populate the loss claculation, checkpoint steps along training loop execution and use *tqdm* to view the progress.
             
@@ -86,7 +86,7 @@ Since I used BertForSequenceClassification for training my deal sentence classif
 (b)**Load both fine-tuned model and tokenizer saved in Trained notebook by.from_pretrained(trained_model_directory path).**
 (c)Pre-process the sentences across each test example similar to **[a-c] of training notebook**. This yeilds ***input_ids, attention_mask(equal to MAX_LEN), and labels(from label colum of test file).*** Define relevant metrics function or import them from suitable libraries(scikit-learn, keras).
 
-(d)Create test dataloader with batch_size(here 30). After this ***repeat the validation loop part i.e e[iv-vi] except save checkpoint part .Also add predicting output from logits by selecting maximum elemnet index in logits 'array' part***==><u>pred_labels_i = np.argmax(predictions[i], axis=1).flatten()'</u> and aggregating it at epoch level. Calculate relevant aggregated test metrics.
+(d)Create test dataloader with batch_size(here 30). After this ***repeat the validation loop part i.e e[iv-vi] except save checkpoint part .Also add predicting output from logits by selecting maximum elemnet index in logits 'array' part***==><u>pred_labels_i = np.argmax(predictions[i], axis=1).flatten()'</u> and aggregating it at epoch level. Calculate relevant aggregated test metrics. Calculated metrics on **test_set** are mentioned in file path :-**"NLP-text_classification/classification_metrics.txt"(accuracy:- 87.83%, f1:-0.88)**
 
 (e)For the custom test input directly tokenize and convert into ids on one go by tokenizer.encode() method. Pass the ***input_ids*** into loaded model() constructor. Finally predict output from logits by selecting maximum element index in logits 'array' part***==><u>pred_labels_i = np.argmax(predictions[i], axis=1).flatten()'</u>
 

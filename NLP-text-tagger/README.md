@@ -80,14 +80,14 @@ to group the Words, POS, and Tags of given indexed sentence together.Code mentio
 
 (iii) Aggregate the loss to epoch level variable across each batch. After ***loss calculation and updation, perform backprop (normalize gradients to 1 and update weights using opimizer.step(),scheduler.step()). Calculate average loss and append epoch level losses to global train_loss list***.
 
-(iv)Enter the **validation loop** inside given epoch and perform same ***batchwise operation(loss calculation,metrics).For validation accuracy, taglist prediction for a batch is needed. This is done by extracting the maximum of logits array each actual tag and consolidation in an array***==><u>[list(p) for p in np.argmax(logits, axis=2)]</u>. Aggegate these to relevant metrics and averge validation loss at epoch level ( at end of batch level loop). Also append epoch level avg loss to global list like in last step. ***Prefer saving the model_checkpoint with bestmetrics(here epoch_accuracy) here for optimum weights(or at last after loss plot).***
+(iv)Enter the **validation loop** inside given epoch and perform same ***batchwise operation(loss calculation,metrics).For validation accuracy, taglist prediction for a batch is needed. This is done by extracting the maximum of logits array each actual tag and consolidation in an array***==><u>[list(p) for p in np.argmax(logits, axis=2)]</u>. Aggegate these to relevant metrics and averge validation loss at epoch level ( at end of batch level loop). Also append epoch level avg loss to global list like in last step. ***Prefer saving the model_checkpoint with bestmetrics(here epoch_accuracy) here for optimum weights(or at last after loss plot). For our case, best model has <u> {avg_train_loss =0.08, avg_validation_loss= 0.128, validation_accuracy = 0.962, validation F1_score = 0.831}</u>***
 
 (v)Populate the loss claculation, checkpoint steps along training loop execution and use *tqdm* to view the progress.
             
 (k)Plot the epoch level train and validation losses with ***matplotlib*** and ***save the model if not saved iteratively at validation level***(make new model directory and use <u>.save_pretrained(directory path) method)</u>.
 
 ### **(2) Testing notebook:-**
-(a)Set the ***mount to drive path and set runtype environment to GPU.*** Open your **"test.csv**.
+(a)Set the ***mount to drive path and set runtype environment to GPU.*** Open your **"test.csv"**.
 
 (b)**Load both fine-tuned model and tokenizer saved in Trained notebook by.from_pretrained(trained_model_directory path).**
 (c)Pre-process the sentences across each test example similar to **[a-e] of training notebook**. This yeilds ***input_ids, attention_mask(equal to MAX_LEN), and labels(mapped with input_ids of tokenized words).*** Define relevant metrics function or import them from suitable libraries(scikit-learn, keras).
