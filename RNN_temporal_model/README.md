@@ -2,7 +2,7 @@
 
 ## Purpose and breif overview :-
 
-**This documentation relates to observing and modelling the temporal pattern of power use for set of ACs and saving the optimum model for each device.** 
+**This documentation relates to analysis and modelling the temporal pattern of power use for set of ACs and saving the optimum model for each device.** 
 It helps understand general data preparation, train and inference procedure for temporal data. Understanding the flow gives an idea to implement stock, weather predictions.
 
 The analysis involves at hour and day level power consumption to see pattern of device use, comparison/correlation between them and relation with ambient(outside) temperature. Further sine and cosine cyclicity is induced in hour level data to do model training and prediction. The 
